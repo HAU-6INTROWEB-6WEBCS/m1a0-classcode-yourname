@@ -53,7 +53,7 @@ The comma, capital letters and exclamation mark in the greeting matter. No styli
 
 Save the file, then open **src/index.html** in your browser. You can use **File → Open File** in the browser or double-click the file in your file manager. After editing, save and refresh the browser. The tab title should show M1A0 Hello World, and the page should display your heading and paragraph.
 
-In your private copy, fill in **student.json** with your full name, student number, school email, class code **2006**, and GitHub username. Keep every value as text, including the student number and class code. Use the same verified identity for this course.
+In your private copy, fill in **student.json** with your full name, student number, school email, class code **2006**, and GitHub username. Keep every value as text, including the student number and class code. Use the same verified identity for this course. Enter the lab room in `room` and the computer number printed on your station in `pcNumber`. Use text values such as `"MGN-202"` and `"07"`. Both fields are required by the tests.
 
 ## 4. Check and save your work
 

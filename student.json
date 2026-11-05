@@ -3,5 +3,7 @@
   "studentNumber": "",
   "studentEmail": "",
   "classCode": "",
-  "githubAccount": ""
+  "githubAccount": "",
+  "room": "",
+  "pcNumber": ""
 }

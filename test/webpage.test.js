@@ -56,6 +56,8 @@ describe('Student identity in your private copy', () => {
       'studentEmail',
       'classCode',
       'githubAccount',
+      'room',
+      'pcNumber',
     ]) {
       expect(typeof identity[field], `Keep ${field} as text.`).toBe('string')
       expect(identity[field]?.trim(), `Fill in ${field} in student.json.`).toBeTruthy()
