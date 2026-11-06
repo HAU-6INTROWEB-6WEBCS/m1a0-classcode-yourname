@@ -10,7 +10,7 @@ Name your repo `m1a0-CLASSCODE-USERNAME`. Replace CLASSCODE with the numeric cla
 
 ## Download and start the launcher
 
-Open [start-activity.sh](start-activity.sh) on the GitHub template and choose **Download raw file**. Save it as `start-activity.sh` in Downloads. On Mac, open **Terminal**. On Windows, open **Git Bash** from Git for Windows. Run these commands from that standalone terminal.
+**Download [start-activity.sh](start-activity.sh) before cloning.** Open the file on the GitHub template, click **Download raw file**, and save it in Downloads as `start-activity.sh`. On Mac, open **Terminal**. On Windows, open **Git Bash** from Git for Windows. Run these commands from that standalone terminal.
 
 ```bash
 cd "$HOME/Downloads"
@@ -21,9 +21,12 @@ If you saved it elsewhere, change into that folder first. Enter your GitHub user
 
 ## Clone and check your Git setup
 
-1. In VS Code, open the Command Palette and select **Git: Clone**. Paste your private activity repo's HTTPS URL from GitHub's **Code** menu. Choose the work folder printed by the launcher as the destination. Confirm your own GitHub account in the browser prompt.
-2. Open the cloned repo in that VS Code window. Choose **Terminal → New Terminal** to open a terminal there. You can also use the terminal the launcher opened and run `cd m1a0-CLASSCODE-USERNAME` with your actual repo name. In any other terminal, change into the full path of your cloned repo first.
-3. Paste this check into the terminal.
+1. On GitHub, open your **private activity repo**. Click **Code → HTTPS** and copy the clone URL.
+2. In the VS Code window opened by the launcher, press **Shift+Command+P** on Mac or **Ctrl+Shift+P** on Windows. Type **Git: Clone** and select it.
+3. Paste the HTTPS URL and press Enter. When VS Code asks where to clone it, choose the **work folder** printed by the launcher. Git creates a repo folder inside it.
+4. If GitHub prompts you to sign in, check the account in the browser and authorize with your own account. When VS Code asks whether to open the cloned repo, choose **Open**.
+5. In VS Code, choose **Terminal → New Terminal**. To use the launcher terminal instead, type `cd m1a0-CLASSCODE-USERNAME` with your actual repo folder name. In any other terminal, change into the full path of your cloned repo first.
+6. Paste this check into the terminal.
 
 ```bash
 git status --short --branch && git remote -v && git var GIT_AUTHOR_IDENT
