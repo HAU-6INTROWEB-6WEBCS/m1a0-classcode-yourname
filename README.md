@@ -67,7 +67,7 @@ Review your changes before committing. Only the activity files belong here. Neve
 
 ```sh
 git status
-git add src/index.html student.json README.md package-lock.json AI-USAGE.md
+git add src/index.html student.json README.md package-lock.json SOURCES-AND-ASSISTANCE.md
 git commit -m "Complete M1A0 Hello World"
 git push
 ```
@@ -119,11 +119,11 @@ Submit the commit page, rather than the repository home page, a branch link, or 
 
 The Canvas assignment has not been configured by this template. Its availability, deadline and points will be announced in class. This activity does not require an additional Course Platform submission unless the instructor changes its submission instructions.
 
-## AI and other assistance
+## Sources and assistance
 
 Follow the instructor's rules for this assessment. Use permitted help to understand setup, HTML and errors, then test and explain your own submission. Ask first if permission is unclear. Never share credentials, personal information, or another student's private work with a tool.
 
-Complete [AI-USAGE.md](AI-USAGE.md) in your private copy. Describe the help you used and credit any applicable sources. Commit the file with your activity.
+Complete [SOURCES-AND-ASSISTANCE.md](SOURCES-AND-ASSISTANCE.md) in your private copy. Describe the help you used and credit any applicable sources. Commit the file with your activity.
 
 ## If something fails
 
