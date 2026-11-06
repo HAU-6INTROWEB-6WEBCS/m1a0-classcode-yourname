@@ -72,7 +72,38 @@ git commit -m "Complete M1A0 Hello World"
 git push
 ```
 
-If GitHub asks you to authenticate, use your configured GitHub sign-in method. Never put a token in the page, README, screenshot, or submission comment.
+## Git on a shared lab Mac
+
+Open your own activity folder and run `git remote -v`. Check that both URLs point to your private M1A0 repo. Open that repo in GitHub using your own account to confirm you can access it.
+
+Before committing on a shared Mac, run `git var GIT_AUTHOR_IDENT` to check the name and email Git will record. If they are missing or belong to someone else, set your own name and GitHub commit email in this activity repo.
+
+```sh
+git config --local user.name "Your Name"
+git config --local user.email "YOUR-GITHUB-COMMIT-EMAIL"
+```
+
+These values control the name and email on your commits. GitHub sign-in controls access to the repository.
+
+### Use VS Code to sign in and push
+
+1. Open the activity folder in VS Code. Check the **Accounts** menu at the bottom left. If someone else's GitHub account is signed in, ask the instructor to help switch accounts.
+2. In **Source Control**, stage your activity files and commit them. Open the **…** menu and choose **Push**. If VS Code asks you to sign in, finish the browser prompt with your own GitHub account and return to VS Code.
+3. Check GitHub for your new commit before copying its URL for Canvas. At the end of class, sign out of your GitHub account in both VS Code and the browser.
+
+### If macOS uses the wrong saved GitHub account
+
+A push that reports the wrong account, or says the private repo cannot be found even though you can open it in GitHub, can be caused by a saved credential. Check the remote and your GitHub account first. Ask the instructor before changing anything in the shared Keychain.
+
+If the instructor asks you to push to an HTTPS remote from Terminal with your own personal access token, run this from your activity folder. This command bypasses saved credential helpers for this push only.
+
+```sh
+git -c credential.helper= push
+```
+
+At the prompts, enter your GitHub username and use your token in the password field. Keep the token out of the command, source files, screenshots and chat. If you still see the wrong account or get an access error, show the instructor the error with any secrets hidden.
+
+[GitHub sign-in in VS Code](https://code.visualstudio.com/docs/sourcecontrol/github) · [GitHub credentials on macOS](https://docs.github.com/en/get-started/git-basics/updating-credentials-from-the-macos-keychain)
 
 ## 5. Submit the exact commit link in Canvas
 
