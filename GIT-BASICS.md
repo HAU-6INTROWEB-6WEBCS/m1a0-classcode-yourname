@@ -7,6 +7,7 @@ Every activity in this course lives in a Git repository on GitHub. You clone it,
 - Explain the difference between Git and GitHub.
 - Say what a repository, a commit, a remote and a branch are.
 - Follow one change from your editor to a commit on GitHub, and name the command for each step.
+- Run the commands for cloning, checking, committing and pushing, and match each to its VS Code button.
 - Read the output of `git status` and know what to do next.
 - Find the URL of one commit and explain why the course asks for it instead of the repository link.
 
@@ -50,7 +51,77 @@ working        staging area         local history            GitHub
 
 *Source:* Pro Git, [1.3 What is Git?, The Three States](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F) and [2.2 Recording Changes to the Repository](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository).
 
-## 4. Reading `git status`
+## 4. The commands, one lab session from start to finish
+
+Type each command on its own line and press Enter. Windows PowerShell does not accept `&&`, so never join two commands into one line. Replace the parts in capitals with your own details.
+
+**Get your repo onto the lab PC (once per session).** Copy the URL from your repo's green **Code** button on GitHub.
+
+```bash
+git clone https://github.com/ORG/ACTIVITY-CLASSCODE-USERNAME.git
+cd ACTIVITY-CLASSCODE-USERNAME
+code .
+```
+
+`git clone` makes a new folder with the repo's name, and `cd` moves you into it. Every command after this must run inside that folder.
+
+**Check the wiring before you change anything.**
+
+```bash
+git status
+git remote -v
+git var GIT_AUTHOR_IDENT
+```
+
+The first shows your branch and any changes, the second shows that `origin` is your own private repo, and the third shows the name and email your commits will carry.
+
+**Save your work to GitHub (repeat as often as you like).** Edit and save your files in VS Code, then:
+
+```bash
+git status
+git add .
+git commit -m "Describe what you changed"
+git push
+```
+
+`git add .` stages every changed file in the folder; `git add README.md` stages just one. The message after `-m` should say what the commit does, for example "Add the club notice header". `git push` sends the commit to GitHub.
+
+**See what you have done.**
+
+```bash
+git log --oneline
+git diff
+```
+
+`git log --oneline` lists your commits, newest first, one per line with its short hash. `git diff` shows the lines you changed but have not staged yet. Press `q` to leave either view if it fills the screen.
+
+**Bring down changes made somewhere else** (for example, on another PC or in the GitHub website):
+
+```bash
+git pull
+```
+
+### Command reference
+
+| Command | What it does | In VS Code |
+| --- | --- | --- |
+| `git clone URL` | Downloads a repo into a new folder. | Command Palette, **Git: Clone** |
+| `cd FOLDER` | Moves the terminal into a folder. | (terminal only) |
+| `git status` | Reports what changed and what is staged. Changes nothing. | The **Source Control** panel |
+| `git add FILE` or `git add .` | Stages a file, or every change. | **+** next to a file, or next to **Changes** |
+| `git commit -m "MESSAGE"` | Records the staged changes as a commit. | Type the message, then **Commit** |
+| `git push` | Sends your commits to GitHub. | **Sync Changes**, or **Push** in the **...** menu |
+| `git pull` | Brings new commits down from GitHub. | **Pull** in the **...** menu |
+| `git log --oneline` | Lists commits, newest first. | The **Source Control Graph** |
+| `git diff` | Shows unstaged line changes. | Click a changed file |
+| `git remote -v` | Shows where `origin` points. | (terminal only) |
+| `git var GIT_AUTHOR_IDENT` | Shows the name and email your next commit will carry. | (terminal only) |
+
+The terminal and the Source Control panel do the same thing to the same repo, so you can mix them: commit in VS Code and check with `git status` in the terminal.
+
+*Source:* Pro Git, [2.1 Getting a Git Repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository), [2.2 Recording Changes to the Repository](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository), [2.3 Viewing the Commit History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History) and [2.5 Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes); Visual Studio Code Docs, [Source Control](https://code.visualstudio.com/docs/sourcecontrol/overview).
+
+## 5. Reading `git status`
 
 `git status` is the command to run whenever you are unsure what state your work is in. It changes nothing; it only tells you where things are.
 
@@ -66,7 +137,7 @@ The last row is the most common mistake in the lab. After `git clone`, Git makes
 
 *Source:* Pro Git, [2.2 Recording Changes to the Repository, Checking the Status of Your Files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository).
 
-## 5. Who you are: the commit author
+## 6. Who you are: the commit author
 
 Every commit records an author name and email. Git does not check them; it writes whatever it is told. On a shared lab PC, the previous student's details may still be set, and their name would then appear on your work. The course launcher sets your name and email for your session only, and the setup check `git var GIT_AUTHOR_IDENT` shows what Git will write. If it shows someone else, stop and rerun the launcher before you commit.
 
@@ -74,13 +145,13 @@ Your commit email should be one your GitHub account knows, such as your school a
 
 *Source:* Pro Git, [1.6 First-Time Git Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup); GitHub Docs, [Setting your commit email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
 
-## 6. Signing in without a password
+## 7. Signing in without a password
 
 GitHub stopped accepting account passwords for Git in 2021. Git now signs in with a token, and the course launcher gets one for you through the GitHub CLI and your browser, keeps it only for that session, and deletes it when you type `exit`. That is why the setup guide tells you never to type a password or token into Git: if Git asks, something is wrong with the session, and the fix is to rerun the launcher, not to paste a secret into a lab PC.
 
 *Source:* GitHub Blog, [Token authentication requirements for Git operations](https://github.blog/security/application-security/token-authentication-requirements-for-git-operations/) (2020); GitHub CLI manual, [gh auth login](https://cli.github.com/manual/gh_auth_login).
 
-## 7. Why the course asks for a commit link
+## 8. Why the course asks for a commit link
 
 A repository changes every time you push. A commit never changes. When you submit the URL of one commit (it contains `/commit/` followed by the hash), you are saying "grade exactly this version". The grader reads that snapshot, so later pushes cannot change what you submitted, and the date on the commit shows when the work was done.
 
@@ -88,7 +159,7 @@ To find it: open your repo on GitHub, click the commit count or the **History** 
 
 *Source:* GitHub Docs, [About commits](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits).
 
-## 8. When something goes wrong
+## 9. When something goes wrong
 
 | Message or symptom | Likely cause | Fix |
 | --- | --- | --- |
